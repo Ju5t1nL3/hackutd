@@ -15,7 +15,7 @@ function App() {
 
       <main className="subtitle">
         <div className="info-section">
-          <h2 className="for-who">For College Students,</h2><h3 className= "by-who">by College Students</h3>
+          <h2 className="for-who">For college students,</h2><h3 className= "by-who">by college students</h3>
         </div>
         <div>
           <p className= "blurb"> Have your future peer reviewed.</p>
