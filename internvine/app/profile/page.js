@@ -7,7 +7,8 @@ import { FaPencilAlt, FaTrashAlt, FaPlus } from 'react-icons/fa';
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false); // Edit mode control
   const [profileData, setProfileData] = useState({
-    name: "John Doe",
+
+    name: "Isaac",
     university: "TAMU",
     major: "Computer Science",
     graduationYear: "2025",
