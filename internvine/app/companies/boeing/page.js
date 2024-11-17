@@ -36,7 +36,7 @@ function ApplicationForm() {
 
   return (
     <div className="application-page">
-      <h1 className="company-title">Boeing</h1>
+      <h1 className="company-title">Spring 2025 - Boeing Structural Engineering Intern</h1>
       <div className="company-image">
         <Image src="/boeing.jpeg" alt="Boeing Logo" width={300} height={200} />
       </div>

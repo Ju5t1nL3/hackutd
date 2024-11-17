@@ -36,7 +36,7 @@ function ApplicationForm() {
 
   return (
     <div className="application-page">
-      <h1 className="company-title">Google</h1>
+      <h1 className="company-title">Spring 2025 - Google STEP Internship</h1>
       <div className="company-image">
         <Image src="/google.jpg" alt="Google Logo" width={300} height={200} />
       </div>

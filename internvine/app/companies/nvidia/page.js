@@ -36,9 +36,20 @@ function ApplicationForm() {
 
   return (
     <div className="application-page">
-      <h1 className="company-title">Nvidia</h1>
+      <h1 className="company-title">Summer 2025 - NVIDIA Ignite</h1>
       <div className="company-image">
         <Image src="/nvidia.jpg" alt="Nvidia Logo" width={300} height={200} />
+        <div className="company-blurb">
+<p>The NVIDIA Ignite Hardware Engineering Internship is a 12-week summer program for first and second-year undergraduates, particularly those from underrepresented communities. Based at NVIDIA's Santa Clara headquarters, interns work on real projects with technical experts in fields like AI, ASIC design, and GPU verification. The program offers:
+
+    Hands-on experience with cutting-edge technology
+    Exposure to NVIDIA's products, culture, and ecosystem
+    Financial support for travel and housing
+    Opportunity to kickstart a career in hardware engineering and AI
+
+NVIDIA Ignite is designed to give students an early start in building their careers, providing a unique blend of technical experience and professional development</p>
+.
+        </div>
       </div>
       <div className="application-form">
         <form onSubmit={handleSubmit}>
