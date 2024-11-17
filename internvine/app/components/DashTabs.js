@@ -16,8 +16,8 @@ export function DashTabs() {
     <div className="relative flex justify-center space-x-8 mb-8 border-b">
       <div className="flex space-x-8">
         <Link
-          href="/auth/login"
-          className={`pb-2 px-4 ${getTabStyle('/auth/login')}`}
+          href="/mywork"
+          className={`pb-2 px-4 ${getTabStyle('/mywork')}`}
         >
           My Work
         </Link>
