@@ -74,6 +74,8 @@ export default function ReviewPage({ params }) {
             onChange={handleChange}
             placeholder="What didn’t you like?"
           />
+        </div>
+
 
         <div className={styles.field}>
           <label>Additional notes</label>
