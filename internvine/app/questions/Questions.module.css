@@ -13,7 +13,7 @@
   .title {
     font-size: 24px;
     font-weight: bold;
-    color: #4FD1C5; /* Soft teal for the title */
+    color: white; /* Soft teal for the title */
     margin-bottom: 30px;
     text-align: center;
   }
@@ -25,7 +25,7 @@
   
   .questionField label {
     font-weight: bold;
-    color: #FFD700; /* Gold color for questions */
+    color: #6366f1; /* Gold color for questions */
     margin-bottom: 5px;
     display: block;
   }
