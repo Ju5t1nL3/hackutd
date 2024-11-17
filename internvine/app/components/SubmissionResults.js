@@ -5,7 +5,8 @@ import styles from './SearchResults.module.css';
 
 export default function SubmissionResults({ query, filters }) {
   const mockResults = [
-    { id: 3, title: 'My Spring 2025 - Structural Engineering Intern Submission', image: '/boeing.jpeg', company: 'Boeing' },
+    { id: 3, title: 'My Resume - Spring 2025 - Structural Engineering Intern Submission', image: '/boeing.jpeg', company: 'Boeing' },
+    { id: 4, title: 'My CV - Spring 2025 - Structural Engineering Intern Submission', image: '/boeing.jpeg', company: 'Boeing' },
   ];
 
   // Ensure filters have default values to avoid undefined errors
