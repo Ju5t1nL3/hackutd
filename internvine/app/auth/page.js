@@ -43,7 +43,7 @@ export default function LoginPage() {
               <input
                 type="email"
                 placeholder="Email address"
-                className="w-full p-3 bg-gray-50 rounded-md"
+                className="w-full p-3 bg-gray-50 rounded-md text-gray-900"
               />
             </div>
             
@@ -51,7 +51,7 @@ export default function LoginPage() {
               <input
                 type="password"
                 placeholder="Password"
-                className="w-full p-3 bg-gray-50 rounded-md"
+                className="w-full p-3 bg-gray-50 rounded-md text-gray-900"
               />
             </div>
           </div>

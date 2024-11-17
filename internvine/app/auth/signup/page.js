@@ -44,7 +44,7 @@ export default function SignUpPage() {
               <input
                 type="email"
                 placeholder="Email address"
-                className="w-full p-3 bg-gray-50 rounded-md"
+                className="w-full p-3 bg-gray-50 rounded-md text-gray-900"
               />
             </div>
             
@@ -52,20 +52,20 @@ export default function SignUpPage() {
               <input
                 type="password"
                 placeholder="Password"
-                className="w-full p-3 bg-gray-50 rounded-md"
+                className="w-full p-3 bg-gray-50 rounded-md text-gray-900"
               />
             </div>
             
             <input
               type="text"
               placeholder="First name"
-              className="w-full p-3 rounded-md border"
+              className="w-full p-3 rounded-md border text-gray-900"
             />
             
             <input
               type="text"
               placeholder="Last name"
-              className="w-full p-3 rounded-md border"
+              className="w-full p-3 rounded-md border text-gray-900"
             />
           </div>
           
