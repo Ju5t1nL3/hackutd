@@ -12,17 +12,14 @@ function App() {
 
       <main className="subtitle">
         <div className="info-section">
-          <h2 className="who-we-are">For College Students</h2>
-          <div className="wavy-lines">
-          <h3 className="by-who">By College Students</h3>
-          </div>
+          <h2 className="for-who">For College Students,</h2><h3 className= "by-who">by College Students</h3>
         </div>
-
+        <div>
+          <p className= "blurb"> Blah Blah Blah</p>
+         </div> 
         <button className="get-started-btn">
           Get Started
         </button>
-
-
       </main>
     </div>
   );

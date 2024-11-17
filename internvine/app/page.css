@@ -37,6 +37,20 @@ body {
   max-width: 1200px;
 }
 
+.for-who, .by-who {
+  opacity: 0;
+  color: #808080;
+  animation: fadeIn 2s ease forwards;
+  display: inline-block; /* Makes them appear inline */
+}
+
+.for-who {
+  margin-right: 1px; /* Add space between the phrases */
+}
+
+.by-who {
+  animation-delay: 1s; /* Delays the second phrase animation */
+}
 .title {
   font-size: 4rem;
   color: #ffffff;
@@ -64,29 +78,40 @@ body {
 }
 
 .subtitle {
-  font-size: 3rem;
-  color: #ffffff;
-  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #808080;
+  margin-bottom: 100px;
   width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: .5rem;
 }
 
 .info-section {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  flex-direction:row; /* Change to row to place items on same line */
 }
 
-.who-we-are, .by-who {
+.blurb {
+  font-size: 1.5rem;
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-direction: row;
+  opacity: 0; /* Start with opacity 0 */
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 3s; /* Add the delay */
 }
+
+/* Remove the duplicate .blurb declaration */
 
 .get-started-btn {
   padding: 10px 20px;
@@ -112,5 +137,16 @@ body {
   
   .subtitle {
     font-size: 1.2rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
