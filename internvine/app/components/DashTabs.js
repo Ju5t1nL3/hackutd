@@ -28,10 +28,10 @@ export function DashTabs() {
           Submit
         </Link>
         <Link
-          href="/auth/hongga"
-          className={`pb-2 px-4 ${getTabStyle('/auth/hongga')}`}
+          href="/review-resume"
+          className={`pb-2 px-4 ${getTabStyle('/review-resume')}`}
         >
-          Review
+          Resume
         </Link>
       </div>
       <Link
