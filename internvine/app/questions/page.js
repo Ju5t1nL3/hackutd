@@ -61,7 +61,7 @@ const Questions = () => {
       });
 
       if (response.ok) {
-        router.push('/profile');
+        router.push('/dashboard');
       } else {
         const data = await response.json();
         alert(data.error || 'Error updating profile');

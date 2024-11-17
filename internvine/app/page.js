@@ -18,7 +18,7 @@ function App() {
           <h2 className="for-who">For College Students,</h2><h3 className= "by-who">by College Students</h3>
         </div>
         <div>
-          <p className= "blurb"> Blah Blah Blah</p>
+          <p className= "blurb"> Have your future peer reviewed.</p>
          </div> 
         <Link href = "/auth/signup">
           <button className="get-started-btn">
