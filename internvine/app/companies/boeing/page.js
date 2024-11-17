@@ -114,7 +114,7 @@ function ApplicationForm() {
             </div>
           </div>
 
-          <button type="submit" className="submit-btn" disabled={uploading}>
+          <button type="submit" className="submit-btn" href='\dashboard' disabled={uploading}>
             {uploading ? "Uploading..." : "Submit Application"}
           </button>
         </form>
