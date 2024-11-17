@@ -42,6 +42,35 @@ const Questions = () => {
     });
   };
 
+  const handleSubmit = async () => {
+    // Validate required fields
+    if (!questionsData.university || !questionsData.major || !questionsData.graduationYear) {
+      alert('Please fill in all required fields');
+      return;
+    }
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/profile/update', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: localStorage.getItem('userEmail'),
+          ...questionsData
+        })
+      });
+  
+      if (response.ok) {
+        router.push('/profile');
+      } else {
+        alert('Error updating profile');
+      }
+    } catch (error) {
+      alert('An error occurred while saving profile');
+    }
+  };
+
   return (
     <div className={styles.questionsContainer}>
       <h2 className={styles.title}>Tell me about yourself!</h2>
@@ -98,7 +127,10 @@ const Questions = () => {
         <button onClick={addInternship} className={styles.addInternshipButton}>
           <FaPlus /> Add Internship
         </button>
-        <button className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 mt-4">
+        <button 
+          onClick={handleSubmit} 
+          className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 mt-4"
+        >
             Finish Profile
         </button>
       </div>

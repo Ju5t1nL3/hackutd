@@ -1,9 +1,50 @@
 // app/auth/signup/page.js
+"use client";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { AuthTabs } from '../AuthTabs';
 import { SocialButton } from '../../components/SocialButton';
 import Link from 'next/link'
 
 export default function SignUpPage() {
+  const router = useRouter();
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: ''
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validate fields
+    if (!formData.email || !formData.password || !formData.firstName || !formData.lastName) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        // Store email in localStorage for profile update
+        localStorage.setItem('userEmail', formData.email);
+        router.push('/questions');
+      } else {
+        const data = await response.json();
+        alert(data.error);
+      }
+    } catch (error) {
+      alert('An error occurred during signup');
+    }
+  };
   return (
     <div className="min-h-screen flex flex-col items-center pt-12 px-4 justify-start w-full">
       <Link href="../">
@@ -41,51 +82,61 @@ export default function SignUpPage() {
           
           <div className="text-center my-4 text-gray-500">or</div>
           
-          <div className="space-y-4">
-            <div className="relative">
+          <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4">
+            <div className="space-y-4">
+              <div className="relative">
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  className="w-full p-3 bg-gray-50 rounded-md text-gray-900"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                />
+              </div>
+              
+              <div className="relative">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="w-full p-3 bg-gray-50 rounded-md text-gray-900"
+                  value={formData.password}
+                  onChange={(e) => setFormData({...formData, password: e.target.value})}
+                />
+              </div>
+              
               <input
-                type="email"
-                placeholder="Email address"
-                className="w-full p-3 bg-gray-50 rounded-md text-gray-900"
+                type="text"
+                placeholder="First name"
+                className="w-full p-3 rounded-md border text-gray-900"
+                value={formData.firstName}
+                onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+              />
+              
+              <input
+                type="text"
+                placeholder="Last name"
+                className="w-full p-3 rounded-md border text-gray-900"
+                value={formData.lastName}
+                onChange={(e) => setFormData({...formData, lastName: e.target.value})}
               />
             </div>
             
-            <div className="relative">
-              <input
-                type="password"
-                placeholder="Password"
-                className="w-full p-3 bg-gray-50 rounded-md text-gray-900"
-              />
-            </div>
+            <p className="text-sm text-gray-600 text-center">
+              By signing up, you agree to our{' '}
+              <a href="#" className="text-blue-500 hover:text-blue-600">
+                terms of service
+              </a>{' '}
+              and{' '}
+              <a href="#" className="text-blue-500 hover:text-blue-600">
+                privacy policy
+              </a>
+              .
+            </p>
             
-            <input
-              type="text"
-              placeholder="First name"
-              className="w-full p-3 rounded-md border text-gray-900"
-            />
-            
-            <input
-              type="text"
-              placeholder="Last name"
-              className="w-full p-3 rounded-md border text-gray-900"
-            />
-          </div>
-          
-          <p className="text-sm text-gray-600 text-center">
-            By signing up, you agree to our{' '}
-            <a href="#" className="text-blue-500 hover:text-blue-600">
-              terms of service
-            </a>{' '}
-            and{' '}
-            <a href="#" className="text-blue-500 hover:text-blue-600">
-              privacy policy
-            </a>
-            .
-          </p>
-          
-          <button className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 mt-4">
-            Sign Up
-          </button>
+            <button className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 mt-4">
+              Sign Up
+            </button>
+          </form>
         </div>
       </div>
     </div>
