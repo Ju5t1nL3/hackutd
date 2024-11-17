@@ -9,6 +9,7 @@ CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -20,13 +21,14 @@ class User(db.Model):
     graduation_year = db.Column(db.Integer)
     internships = db.Column(db.String(1000))  # Will store JSON string
 
+
 @app.route('/api/signup', methods=['POST'])
 def signup():
     data = request.json
-    
+
     if User.query.filter_by(email=data['email']).first():
         return jsonify({'error': 'Email already exists'}), 400
-    
+
     user = User(
         email=data['email'],
         password=generate_password_hash(data['password']),
@@ -35,38 +37,42 @@ def signup():
     )
     db.session.add(user)
     db.session.commit()
-    
+
     return jsonify({'message': 'User created successfully'}), 201
+
 
 @app.route('/api/profile/update', methods=['POST'])
 def update_profile():
     data = request.json
     user = User.query.filter_by(email=data['email']).first()
-    
+
     if not user:
         return jsonify({'error': 'User not found'}), 404
-    
+
     user.university = data['university']
     user.major = data['major']
     user.graduation_year = data['graduationYear']
     # Convert internships list to JSON string
     user.internships = json.dumps(data['internships'])
-    
+
     try:
         db.session.commit()
         return jsonify({'message': 'Profile updated successfully'})
     except Exception as e:
         db.session.rollback()
+        print('here')
         return jsonify({'error': str(e)}), 500
 
 # Add a route to get profile data
-@app.route('/api/profile/<email>', methods=['GET'])
-def get_profile(email):
+
+
+@app.route('/api/profile', methods=['GET'])
+def get_profile():
+    email = request.args.get('email')
     user = User.query.filter_by(email=email).first()
-    
     if not user:
         return jsonify({'error': 'User not found'}), 404
-    
+
     return jsonify({
         'email': user.email,
         'firstName': user.first_name,
@@ -76,6 +82,7 @@ def get_profile(email):
         'graduationYear': user.graduation_year,
         'internships': json.loads(user.internships) if user.internships else []
     })
+
 
 if __name__ == '__main__':
     with app.app_context():
