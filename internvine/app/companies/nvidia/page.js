@@ -48,7 +48,6 @@ function ApplicationForm() {
     Opportunity to kickstart a career in hardware engineering and AI
 
 NVIDIA Ignite is designed to give students an early start in building their careers, providing a unique blend of technical experience and professional development</p>
-.
         </div>
       </div>
       <div className="application-form">
@@ -89,6 +88,9 @@ NVIDIA Ignite is designed to give students an early start in building their care
             Submit Application
           </button>
         </form>
+        <button className="back-btn" onClick={() => window.location.href = '/dashboard'}>
+          Back to Dashboard
+        </button>      
       </div>
     </div>
   );

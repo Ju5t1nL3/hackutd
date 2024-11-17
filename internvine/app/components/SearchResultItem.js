@@ -1,6 +1,6 @@
 // components/SearchResultItem.js
 import Link from 'next/link';
-import styles from '../styles/SearchResultItem.module.css';
+import styles from './SearchResultItem.module.css';
 
 export default function SearchResultItem({ id, title, image, company }) {
   return (

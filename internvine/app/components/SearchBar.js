@@ -1,6 +1,6 @@
 
 // components/SearchBar.js
-import styles from '../styles/SearchBar.module.css';
+import styles from './SearchBar.module.css';
 
 export default function SearchBar({ onSearch }) {
   const handleSubmit = (e) => {

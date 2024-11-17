@@ -1,6 +1,6 @@
 // components/SearchResults.js
 import SearchResultItem from './SearchResultItem';
-import styles from '../styles/SearchResults.module.css';
+import styles from './SearchResults.module.css';
 
 export default function SearchResults({ query, filters }) {
   const mockResults = [
@@ -10,15 +10,25 @@ export default function SearchResults({ query, filters }) {
   ];
 
   // Filter the results based on the search query
-  const filteredResults = mockResults.filter(result =>
+  const filteredResults = mockResults.filter(result => 
     result.title.toLowerCase().includes(query.toLowerCase())
   );
 
   return (
     <div className={styles.searchResults}>
-      {filteredResults.map((result) => (
-        <SearchResultItem key={result.id} {...result} />
-      ))}
+      {filteredResults.length === 0 ? (
+        <h2 className={styles.noResults}>No results found</h2>
+      ) : (
+        filteredResults.map(result => (
+          <SearchResultItem
+            key={result.id}
+            id={result.id}
+            title={result.title}
+            image={result.image}
+            company={result.company}
+          />
+        ))
+      )}
     </div>
   );
 }
