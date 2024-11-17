@@ -14,16 +14,22 @@ function ApplicationForm() {
     setUploading(true);
     const formData = new FormData();
     formData.append("file", file);
+    
     try {
       const response = await fetch("/api/files", {
         method: "POST",
         body: formData,
       });
-      const url = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(`Upload failed: ${response.statusText}`);
+      }
+  
+      const data = await response.json();
       setUploading(false);
-      return url;
+      return data.url;
     } catch (e) {
-      console.log(e);
+      console.error('Upload error:', e);
       setUploading(false);
       alert("Trouble uploading file");
       return null;
