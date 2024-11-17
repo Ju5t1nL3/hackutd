@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import SearchBar from '../components/SearchBar';
-import SearchResults from '../components/SearchResults';
+import SubmissionResults from '../components/SubmissionResults';
 import Filters from '../components/Filters';
 import ResumeList from '../components/ResumeList';
 import styles from '../styles/Search.module.css';
@@ -51,7 +51,7 @@ export default function ResumesPage() {
       <SearchBar onSearch={handleSearch} />
       <div className={styles.content}>
         <Filters onChange={handleFilterChange} />
-        <SearchResults query={searchQuery} filters={filters} />
+        <SubmissionResults query={searchQuery} filters={filters} />
       </div>
     </div>
   );
