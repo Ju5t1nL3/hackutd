@@ -7,7 +7,7 @@ export default function Filters({ onChange }) {
   const [selectedTimes, setSelectedTimes] = useState([]);
 
   // Company and Time filter options
-  const companies = ['NVIDIA', 'Google', 'Boeing'];
+  const companies = ['NVIDIA', 'Google', 'Boeing', 'Apple', 'Lockheed'];
   const times = ['Spring', 'Summer'];
 
   // Handle changes for company checkboxes
