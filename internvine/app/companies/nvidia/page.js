@@ -6,57 +6,20 @@ import './page.css'
 function ApplicationForm() {
   const [resume, setResume] = useState(null);
   const [coverLetter, setCoverLetter] = useState(null);
-  const [uploading, setUploading] = useState(false);
-  const [resumeUrl, setResumeUrl] = useState(null);
-  const [coverLetterUrl, setCoverLetterUrl] = useState(null);
 
-  const uploadFile = async (file) => {
-    setUploading(true);
-    const formData = new FormData();
-    formData.append("file", file);
-    
-    try {
-      const response = await fetch("/api/files", {
-        method: "POST",
-        body: formData,
-      });
-  
-      if (!response.ok) {
-        throw new Error(`Upload failed: ${response.statusText}`);
-      }
-  
-      const data = await response.json();
-      setUploading(false);
-      return data.url;
-    } catch (e) {
-      console.error('Upload error:', e);
-      setUploading(false);
-      alert("Trouble uploading file");
-      return null;
-    }
-  };
-
-  const handleResumeUpload = async (e) => {
+  const handleResumeUpload = (e) => {
     const file = e.target.files[0];
     if (file && file.type === 'application/pdf') {
-      const url = await uploadFile(file);
-      if (url) {
-        setResume(file);
-        setResumeUrl(url);
-      }
+      setResume(file);
     } else {
       alert('Please upload a PDF file for your resume');
     }
   };
 
-  const handleCoverLetterUpload = async (e) => {
+  const handleCoverLetterUpload = (e) => {
     const file = e.target.files[0];
     if (file && file.type === 'application/pdf') {
-      const url = await uploadFile(file);
-      if (url) {
-        setCoverLetter(file);
-        setCoverLetterUrl(url);
-      }
+      setCoverLetter(file);
     } else {
       alert('Please upload a PDF file for your cover letter');
     }
@@ -68,7 +31,7 @@ function ApplicationForm() {
       alert('Please upload your resume');
       return;
     }
-    console.log('Submitted:', { resume: resumeUrl, coverLetter: coverLetterUrl });
+    console.log('Submitted:', {resume, coverLetter });
   };
 
   return (
@@ -77,12 +40,12 @@ function ApplicationForm() {
       <div className="company-image">
         <Image src="/nvidia.jpg" alt="Nvidia Logo" width={300} height={200} />
         <div className="company-blurb">
-          <p>The NVIDIA Ignite Hardware Engineering Internship is a 12-week summer program for first and second-year undergraduates, particularly those from underrepresented communities. Based at NVIDIA's Santa Clara headquarters, interns work on real projects with technical experts in fields like AI, ASIC design, and GPU verification. The program offers:
+<p>The NVIDIA Ignite Hardware Engineering Internship is a 12-week summer program for first and second-year undergraduates, particularly those from underrepresented communities. Based at NVIDIA's Santa Clara headquarters, interns work on real projects with technical experts in fields like AI, ASIC design, and GPU verification. The program offers:
 
-Hands-on experience with cutting-edge technology
-Exposure to NVIDIA's products, culture, and ecosystem
-Financial support for travel and housing
-Opportunity to kickstart a career in hardware engineering and AI
+    Hands-on experience with cutting-edge technology
+    Exposure to NVIDIA's products, culture, and ecosystem
+    Financial support for travel and housing
+    Opportunity to kickstart a career in hardware engineering and AI
 
 NVIDIA Ignite is designed to give students an early start in building their careers, providing a unique blend of technical experience and professional development</p>
         </div>
@@ -121,21 +84,16 @@ NVIDIA Ignite is designed to give students an early start in building their care
             </div>
           </div>
 
-          <button type="submit" className="submit-btn" disabled={uploading}>
-            {uploading ? "Uploading..." : "Submit Application"}
+          <button type="submit" className="submit-btn">
+            Submit Application
           </button>
         </form>
         <button className="back-btn" onClick={() => window.location.href = '/dashboard'}>
           Back to Dashboard
         </button>      
       </div>
-      {resumeUrl && <img src={resumeUrl} alt="Resume Preview" />}
-      {coverLetterUrl && <img src={coverLetterUrl} alt="Cover Letter Preview" />}
     </div>
   );
 }
 
-
-
-
-
+export default ApplicationForm;
