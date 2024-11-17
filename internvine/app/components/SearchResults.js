@@ -8,6 +8,8 @@ export default function SearchResults({ query, filters }) {
     { id: 1, title: 'Summer 2025 - Ignite Internship', image: '/nvidia.jpg', company: 'NVIDIA' },
     { id: 2, title: 'Spring 2025 - STEP Program', image: '/google.jpg', company: 'Google' },
     { id: 3, title: 'Spring 2025 - Structural Engineering Intern', image: '/boeing.jpeg', company: 'Boeing' },
+    { id: 4, title: 'Spring 2025 - Virtual Reality Intern', image: '/apple.jpg', company: 'Apple' },
+    { id: 5, title: 'Fall 2025 - Mechanical Engineering Intern', image: '/lockheed.jpg', company: 'Lockheed' },
   ];
 
   // Ensure filters have default values to avoid undefined errors
