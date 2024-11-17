@@ -61,7 +61,7 @@ export default function LoginPage() {
           
           <div className="text-center">
             <a href="#" className="text-blue-500 hover:text-blue-600">
-              Don't remember your password?
+              Don&apos;t remember your password?
             </a>
           </div>
           
