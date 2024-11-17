@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function SignUpPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center pt-12 px-4">
+    <div className="min-h-screen flex flex-col items-center pt-12 px-4 justify-start w-full">
       <Link href="../">
         <h1 className="text-3xl font-bold mb-8">ResuMate</h1>
       </Link>

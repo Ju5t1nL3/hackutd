@@ -13,7 +13,7 @@ export function AuthTabs() {
         href="/auth"
         className={`pb-2 px-4 ${
           !isSignUp
-            ? 'border-b-2 border-black font-semibold'
+            ? 'border-b-2 border-white font-semi-bold'
             : 'text-gray-500'
         }`}
       >
@@ -23,7 +23,7 @@ export function AuthTabs() {
         href="/auth/signup"
         className={`pb-2 px-4 ${
           isSignUp
-            ? 'border-b-2 border-black font-semibold'
+            ? 'border-b-2 border-white font-semibold'
             : 'text-gray-500'
         }`}
       >
