@@ -83,6 +83,16 @@ export default function ReviewPage({ params }) {
             placeholder="What didn&apos;t you like?"
           />
         </div>
+          <div className={styles.field}>
+            <label>What you don't like</label>
+            <textarea
+              name="dislikes"
+              value={reviewData.dislikes}
+              onChange={handleChange}
+              placeholder="What didn't you like?"
+              required
+            />
+          </div>
 
           <div className={styles.field}>
             <label>Additional notes</label>

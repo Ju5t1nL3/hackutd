@@ -77,7 +77,7 @@ export default function SignUpPage() {
               </svg>
             </span>}
           >
-            Log in with Google (Coming Soon!)
+            Sign up with Google (Coming Soon!)
           </SocialButton>
           
           <div className="text-center my-4 text-gray-500">or</div>
