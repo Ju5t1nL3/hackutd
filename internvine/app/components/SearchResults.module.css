@@ -1,7 +1,13 @@
-
 /* styles/SearchResults.module.css */
 .searchResults {
-  display: flex;
-  flex-wrap: wrap;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .searchResults {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }
