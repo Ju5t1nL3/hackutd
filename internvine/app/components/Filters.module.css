@@ -11,13 +11,14 @@
   margin-top: 0;
   margin-bottom: 15px;
   font-size: 18px;
-  color: #333;
+  color: #000000;
 }
 
 .filters label {
   display: block;
   margin-bottom: 10px;
   cursor: pointer;
+  color: #000000;
 }
 
 .filters input[type="checkbox"] {
