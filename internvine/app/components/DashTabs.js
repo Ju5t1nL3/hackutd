@@ -31,7 +31,7 @@ export function DashTabs() {
           href="/review-resume"
           className={`pb-2 px-4 ${getTabStyle('/review-resume')}`}
         >
-          Resume
+          Review
         </Link>
       </div>
       <Link
