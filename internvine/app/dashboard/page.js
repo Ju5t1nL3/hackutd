@@ -22,7 +22,7 @@ export default function SearchPage() {
 
   return (
     <div className={styles.searchPage}>
-        <DashTabs />
+      <DashTabs />
 
       <SearchBar onSearch={handleSearch} />
       <div className={styles.content}>

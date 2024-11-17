@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export function AuthTabs() {
+export function DashTabs() {
   const pathname = usePathname();
   const isSignUp = pathname === '/auth/signup';
 
@@ -42,3 +42,5 @@ export function AuthTabs() {
     </div>
   );
 }
+
+export default DashTabs;
