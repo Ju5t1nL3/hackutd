@@ -10,7 +10,7 @@ export function AuthTabs() {
   return (
     <div className="flex justify-center space-x-8 mb-8 border-b">
       <Link
-        href="/auth/login"
+        href="/auth"
         className={`pb-2 px-4 ${
           !isSignUp
             ? 'border-b-2 border-black font-semibold'

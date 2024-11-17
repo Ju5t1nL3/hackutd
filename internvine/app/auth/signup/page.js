@@ -5,17 +5,12 @@ import { SocialButton } from '../../components/SocialButton';
 export default function SignUpPage() {
   return (
     <div className="min-h-screen flex flex-col items-center pt-12 px-4">
-      <h1 className="text-3xl font-bold mb-8">Your Title Here</h1>
+      <h1 className="text-3xl font-bold mb-8">ResuMate</h1>
       
       <div className="w-full max-w-md">
         <AuthTabs />
         
         <div className="space-y-4">
-          <SocialButton
-            icon={<span className="w-6 h-6 bg-[#1877F2] text-white flex items-center justify-center rounded">f</span>}
-          >
-            Sign up with Facebook
-          </SocialButton>
           
           <SocialButton
             icon={<span className="w-6 h-6">
@@ -49,22 +44,16 @@ export default function SignUpPage() {
               <input
                 type="email"
                 placeholder="Email address"
-                className="w-full p-3 pl-10 bg-gray-50 rounded-md"
+                className="w-full p-3 bg-gray-50 rounded-md"
               />
-              <span className="absolute left-3 top-3.5 text-gray-400">
-                📧
-              </span>
             </div>
             
             <div className="relative">
               <input
                 type="password"
                 placeholder="Password"
-                className="w-full p-3 pl-10 bg-gray-50 rounded-md"
+                className="w-full p-3 bg-gray-50 rounded-md"
               />
-              <span className="absolute left-3 top-3.5 text-gray-400">
-                🔒
-              </span>
             </div>
             
             <input
