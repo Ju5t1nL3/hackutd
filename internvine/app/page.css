@@ -1,0 +1,116 @@
+/* styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000000 0%, #4f6a7e 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.title {
+  font-size: 4rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.sign-in-btn {
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1001;
+}
+
+.sign-in-btn:hover {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.subtitle {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 40px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.who-we-are, .by-who {
+  width: 100%;
+  text-align: center;
+}
+
+.get-started-btn {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid #4a90e2;
+  color: #4a90e2;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.get-started-btn:hover {
+  background-color: #4a90e2;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+}
