@@ -44,7 +44,7 @@ const Questions = () => {
 
   return (
     <div className={styles.questionsContainer}>
-      <h2 className={styles.title}>Questions</h2>
+      <h2 className={styles.title}>Tell me about yourself!</h2>
 
       <div className={styles.questionField}>
         <label>What university?</label>
@@ -97,6 +97,9 @@ const Questions = () => {
         </div>
         <button onClick={addInternship} className={styles.addInternshipButton}>
           <FaPlus /> Add Internship
+        </button>
+        <button className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 mt-4">
+            Finish Profile
         </button>
       </div>
     </div>
