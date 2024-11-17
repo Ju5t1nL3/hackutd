@@ -1,13 +1,16 @@
 // App.js
 import React from 'react';
 import './page.css';
+import Link from 'next/link'
 
 function App() {
   return (
     <div className="container">
       <nav className="navbar">
-        <h1 className="title">Internvine</h1>
-        <button className="sign-in-btn">Sign in</button>
+        <h1 className="title">ResuMate</h1>
+        <Link href = "/auth">
+          <button className="sign-in-btn">Sign in</button>
+        </Link>
       </nav>
 
       <main className="subtitle">
@@ -17,9 +20,11 @@ function App() {
         <div>
           <p className= "blurb"> Blah Blah Blah</p>
          </div> 
-        <button className="get-started-btn">
-          Get Started
-        </button>
+        <Link href = "/auth/signup">
+          <button className="get-started-btn">
+            Get Started
+          </button>
+        </Link>
       </main>
     </div>
   );
