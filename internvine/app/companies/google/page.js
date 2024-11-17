@@ -6,20 +6,57 @@ import './page.css'
 function ApplicationForm() {
   const [resume, setResume] = useState(null);
   const [coverLetter, setCoverLetter] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [resumeUrl, setResumeUrl] = useState(null);
+  const [coverLetterUrl, setCoverLetterUrl] = useState(null);
 
-  const handleResumeUpload = (e) => {
+  const uploadFile = async (file) => {
+    setUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    
+    try {
+      const response = await fetch("/api/files", {
+        method: "POST",
+        body: formData,
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Upload failed: ${response.statusText}`);
+      }
+  
+      const data = await response.json();
+      setUploading(false);
+      return data.url;
+    } catch (e) {
+      console.error('Upload error:', e);
+      setUploading(false);
+      alert("Trouble uploading file");
+      return null;
+    }
+  };
+
+  const handleResumeUpload = async (e) => {
     const file = e.target.files[0];
     if (file && file.type === 'application/pdf') {
-      setResume(file);
+      const url = await uploadFile(file);
+      if (url) {
+        setResume(file);
+        setResumeUrl(url);
+      }
     } else {
       alert('Please upload a PDF file for your resume');
     }
   };
 
-  const handleCoverLetterUpload = (e) => {
+  const handleCoverLetterUpload = async (e) => {
     const file = e.target.files[0];
     if (file && file.type === 'application/pdf') {
-      setCoverLetter(file);
+      const url = await uploadFile(file);
+      if (url) {
+        setCoverLetter(file);
+        setCoverLetterUrl(url);
+      }
     } else {
       alert('Please upload a PDF file for your cover letter');
     }
@@ -31,7 +68,7 @@ function ApplicationForm() {
       alert('Please upload your resume');
       return;
     }
-    console.log('Submitted:', {resume, coverLetter });
+    console.log('Submitted:', { resume: resumeUrl, coverLetter: coverLetterUrl });
   };
 
   return (
@@ -40,7 +77,7 @@ function ApplicationForm() {
       <div className="company-image">
         <Image src="/google.jpg" alt="Google Logo" width={300} height={200} />
         <div className="company-blurb">
-<p>The Google STEP Internship is a 12-week paid program for first and second-year Computer Science undergraduates. Running from June to September 2025, interns work on software projects with Google engineers, gaining practical experience and mentorship. Applicants need programming skills in Java, C++, or Python. The program offers a stipend, housing support, and valuable industry exposure, bridging the gap between academics and professional work in tech.</p>
+          <p>The Google STEP Internship is a 12-week paid program for first and second-year Computer Science undergraduates. Running from June to September 2025, interns work on software projects with Google engineers, gaining practical experience and mentorship. Applicants need programming skills in Java, C++, or Python. The program offers a stipend, housing support, and valuable industry exposure, bridging the gap between academics and professional work in tech.</p>
         </div>
       </div>
       <div className="application-form">
@@ -77,16 +114,16 @@ function ApplicationForm() {
             </div>
           </div>
 
-          <button type="submit" className="submit-btn">
-            Submit Application
+          <button type="submit" className="submit-btn" disabled={uploading}>
+            {uploading ? "Uploading..." : "Submit Application"}
           </button>
         </form>
         <button className="back-btn" onClick={() => window.location.href = '/dashboard'}>
           Back to Dashboard
         </button>      
       </div>
+      {resumeUrl && <img src={resumeUrl} alt="Resume Preview" />}
+      {coverLetterUrl && <img src={coverLetterUrl} alt="Cover Letter Preview" />}
     </div>
   );
 }
-
-export default ApplicationForm;
