@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import PdfViewer from '../../components/PdfViewer'; // Assuming the PdfViewer is located in a components folder
 import styles from './Review.module.css';
+import Link from 'next/link'
 
 export default function ReviewPage({ params }) {
   const { profileId } = params; // Get the profile ID from the URL
@@ -83,13 +84,15 @@ export default function ReviewPage({ params }) {
             name="notes"
             value={reviewData.notes}
             onChange={handleChange}
+
             placeholder="Any additional notes"
           />
         </div>
-
-        <button onClick={handleSubmit} className={styles.submitButton}>
-          Submit Review
-        </button>
+        <Link href = "/dashboard">
+          <button onClick={handleSubmit ()} className={styles.submitButton}>
+            Submit Review
+          </button>
+        </Link>
       </div>
     </div>
   );
