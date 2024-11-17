@@ -1,5 +1,4 @@
 // app/auth/page.js (Login Page)
-'use client'
 import { AuthTabs } from './AuthTabs';
 import { SocialButton } from '../components/SocialButton';
 import Link from 'next/link'
