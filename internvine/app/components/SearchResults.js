@@ -1,4 +1,5 @@
 // components/SearchResults.js
+
 import SearchResultItem from './SearchResultItem';
 import styles from './SearchResults.module.css';
 
@@ -9,10 +10,18 @@ export default function SearchResults({ query, filters }) {
     { id: 3, title: 'Spring 2025 - Boeing Structural Engineering Intern', image: '/boeing.jpeg', company: 'Boeing' },
   ];
 
-  // Filter the results based on the search query
-  const filteredResults = mockResults.filter(result => 
-    result.title.toLowerCase().includes(query.toLowerCase())
-  );
+  // Ensure filters have default values to avoid undefined errors
+  const companies = filters.companies || [];
+  const times = filters.times || [];
+
+  // Filter results based on query and filters for company and time
+  const filteredResults = mockResults.filter(result => {
+    const matchesQuery = result.title.toLowerCase().includes(query.toLowerCase());
+    const matchesCompany = companies.length === 0 || companies.includes(result.company);
+    const matchesTime = times.length === 0 || times.some(time => result.title.includes(time));
+    
+    return matchesQuery && matchesCompany && matchesTime;
+  });
 
   return (
     <div className={styles.searchResults}>
