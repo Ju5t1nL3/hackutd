@@ -21,3 +21,11 @@ We learned a lot of front-end design and got experience with working with design
 
 ## What's next for ResuMate
 Next we hope to implement a video recording system to have a similar feedback system but for interviews, since those would be the next step in the recruiting process. Additionally, we're hoping to get a recruiter role so that they would have a role in helping students improve on activities.
+
+# Gallery
+<img width="1680" alt="image" src="https://github.com/user-attachments/assets/a4bd6085-3629-432f-8fd2-d349b48b1bd9">
+<img width="1677" alt="image" src="https://github.com/user-attachments/assets/c8c3f956-7502-443d-91fb-dcffde049647">
+<img width="1679" alt="image" src="https://github.com/user-attachments/assets/ce9f4070-e5ff-4375-b47e-54be011ad7a3">
+<img width="1680" alt="image" src="https://github.com/user-attachments/assets/61b7efc0-3f07-407d-8bb7-4a86e1bbf866">
+
+
