@@ -1,8 +1,8 @@
-// app/auth/page.js (Login Page)
-import { AuthTabs } from './AuthTabs';
-import { SocialButton } from '../components/SocialButton';
+// app/auth/signup/page.js
+import { AuthTabs } from '../AuthTabs';
+import { SocialButton } from '../../components/SocialButton';
 
-export default function LoginPage() {
+export default function SignUpPage() {
   return (
     <div className="min-h-screen flex flex-col items-center pt-12 px-4">
       <h1 className="text-3xl font-bold mb-8">Your Title Here</h1>
@@ -14,7 +14,7 @@ export default function LoginPage() {
           <SocialButton
             icon={<span className="w-6 h-6 bg-[#1877F2] text-white flex items-center justify-center rounded">f</span>}
           >
-            Log in with Facebook
+            Sign up with Facebook
           </SocialButton>
           
           <SocialButton
@@ -39,7 +39,7 @@ export default function LoginPage() {
               </svg>
             </span>}
           >
-            Log in with Google
+            Sign up with Google
           </SocialButton>
           
           <div className="text-center my-4 text-gray-500">or</div>
@@ -66,16 +66,34 @@ export default function LoginPage() {
                 🔒
               </span>
             </div>
+            
+            <input
+              type="text"
+              placeholder="First name"
+              className="w-full p-3 rounded-md border"
+            />
+            
+            <input
+              type="text"
+              placeholder="Last name"
+              className="w-full p-3 rounded-md border"
+            />
           </div>
           
-          <div className="text-center">
+          <p className="text-sm text-gray-600 text-center">
+            By signing up, you agree to our{' '}
             <a href="#" className="text-blue-500 hover:text-blue-600">
-              Don't remember your password?
+              terms of service
+            </a>{' '}
+            and{' '}
+            <a href="#" className="text-blue-500 hover:text-blue-600">
+              privacy policy
             </a>
-          </div>
+            .
+          </p>
           
           <button className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 mt-4">
-            Log In
+            Sign Up
           </button>
         </div>
       </div>
