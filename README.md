@@ -1,1 +1,2 @@
-# hackutd
+# ResuMate
+### For students, by students
