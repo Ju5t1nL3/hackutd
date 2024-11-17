@@ -12,7 +12,7 @@ const Profile = () => {
     university: "TAMU",
     major: "Computer Science",
     graduationYear: "2028",
-    internships: ["NVIDIA Ignite Intern", "Google STEP Intern"], // Default internships
+    internships: ["NVIDIA Ignite Intern"], // Default internships
   });
   const [editingField, setEditingField] = useState(null);
 
