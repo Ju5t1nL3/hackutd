@@ -1,12 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
-import json  # Add this import
+import json
+import secrets
 
 app = Flask(__name__)
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.secret_key = secrets.token_hex(16)
 db = SQLAlchemy(app)
 
 
@@ -82,6 +84,12 @@ def get_profile():
         'graduationYear': user.graduation_year,
         'internships': json.loads(user.internships) if user.internships else []
     })
+
+
+@app.route('/api/signout', methods=['POST'])
+def signout():
+    session.clear()
+    return jsonify({'message': 'Signed out successfully'}), 200
 
 
 if __name__ == '__main__':

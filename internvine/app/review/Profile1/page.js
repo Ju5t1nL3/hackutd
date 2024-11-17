@@ -30,7 +30,7 @@ export default function ReviewPage({ params }) {
       {/* Left Section: Resume-style data */}
       <div className={styles.resumeSection}>
         <h2>Profile Resume</h2>
-        <PdfViewer fileUrl="/resumes/Ishaan-Bansal-Aero-resume.pdf" /> {/* PDF viewer */}
+        <PdfViewer pdfUrl="/Resume.pdf" /> {/* PDF viewer */}
       </div>
 
       {/* Right Section: Review fields */}

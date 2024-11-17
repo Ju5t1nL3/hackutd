@@ -1,9 +1,8 @@
 "use client";
-
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './Profile.module.css';
-import { FaPencilAlt, FaTrashAlt, FaPlus } from 'react-icons/fa';
+import { FaPencilAlt, FaTrashAlt, FaPlus, FaSignOutAlt } from 'react-icons/fa';
 
 const Profile = () => {
   const router = useRouter();
@@ -107,14 +106,34 @@ const Profile = () => {
     }
   };
 
+  const handleSignOut = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/signout', {
+        method: 'POST',
+        credentials: 'include',
+      });
+      if (response.ok) {
+        localStorage.removeItem('userEmail');
+        router.push('/login');
+      } else {
+        console.error('Failed to sign out');
+      }
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
+
   return (
     <div className={styles.profileContainer}>
-      <h1>{profileData.firstName} {profileData.lastName}'s Profile</h1>
-      <button onClick={handleEditToggle}>
-        {isEditing ? 'Cancel' : 'Edit Profile'}
-      </button>
-      {isEditing && <button onClick={handleSave}>Save Changes</button>}
-
+      <h1>Profile</h1>
+      <div className={styles.profileHeader}>
+        <button onClick={handleEditToggle} className={styles.editButton}>
+          {isEditing ? 'Cancel' : 'Edit'}
+        </button>
+        <button onClick={handleSignOut} className={styles.signOutButton}>
+          <FaSignOutAlt /> Sign Out
+        </button>
+      </div>
       <div className={styles.profileField}>
         <label>Email:</label>
         <span>{profileData.email}</span>
@@ -128,8 +147,8 @@ const Profile = () => {
             onChange={(e) => handleFieldChange(e, 'university')}
           />
         ) : (
-          <span>{profileData.university}</span>
-        )}
+            <span>{profileData.university}</span>
+          )}
       </div>
 
       <div className={styles.profileField}>
@@ -140,8 +159,8 @@ const Profile = () => {
             onChange={(e) => handleFieldChange(e, 'major')}
           />
         ) : (
-          <span>{profileData.major}</span>
-        )}
+            <span>{profileData.major}</span>
+          )}
       </div>
 
       <div className={styles.profileField}>
@@ -153,8 +172,8 @@ const Profile = () => {
             onChange={(e) => handleFieldChange(e, 'graduationYear')}
           />
         ) : (
-          <span>{profileData.graduationYear}</span>
-        )}
+            <span>{profileData.graduationYear}</span>
+          )}
       </div>
 
       <div className={styles.profileField}>
@@ -175,12 +194,12 @@ const Profile = () => {
             </button>
           </div>
         ) : (
-          <ul>
-            {profileData.internships.map((internship, index) => (
-              <li key={index}>{internship}</li>
-            ))}
-          </ul>
-        )}
+            <ul>
+              {profileData.internships.map((internship, index) => (
+                <li key={index}>{internship}</li>
+              ))}
+            </ul>
+          )}
       </div>
     </div>
   );

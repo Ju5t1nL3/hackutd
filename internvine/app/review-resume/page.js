@@ -1,40 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+// pages/search.js
+import { useState } from 'react';
 import SearchBar from '../components/SearchBar';
-import SearchResults from '../components/SearchResults';
 import Filters from '../components/Filters';
-import ResumeList from '../components/ResumeList';
+import ResumeResults from '../components/ResumeResults';
 import styles from '../styles/Search.module.css';
 import DashTabs from '../components/DashTabs'
 
-export default function ResumesPage() {
+export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState({});
-  const [resumes, setResumes] = useState([]);
-
-  useEffect(() => {
-    // Fetch resumes when the component mounts
-    fetchResumes();
-  }, []);
-
-  const fetchResumes = async () => {
-    // In a real application, this would be an API call
-    // For now, we'll use mock data
-    const mockResumes = [
-      {
-        id: 1,
-        name: "Justin",
-        gpa: 4.0,
-        school: "Texas A&M University",
-        major: "Computer Science",
-        skills: ["Python", "Java", "TypeScript", "SQL"],
-        fileUrl: "/justin-resume.pdf"
-      },
-      // Add more mock resumes here
-    ];
-    setResumes(mockResumes);
-  };
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -51,7 +27,7 @@ export default function ResumesPage() {
       <SearchBar onSearch={handleSearch} />
       <div className={styles.content}>
         <Filters onChange={handleFilterChange} />
-        <SearchResults query={searchQuery} filters={filters} />
+        <ResumeResults query={searchQuery} filters={filters} />
       </div>
     </div>
   );
