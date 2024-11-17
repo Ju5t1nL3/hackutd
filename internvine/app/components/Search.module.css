@@ -1,0 +1,12 @@
+
+/* styles/Search.module.css */
+.searchPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  margin-top: 20px;
+}

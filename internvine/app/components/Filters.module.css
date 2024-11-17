@@ -1,0 +1,11 @@
+
+/* styles/Filters.module.css */
+.filters {
+  width: 200px;
+  padding-right: 20px;
+}
+
+.filters label {
+  display: block;
+  margin-bottom: 10px;
+}
