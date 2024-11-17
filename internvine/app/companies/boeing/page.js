@@ -6,20 +6,51 @@ import './page.css'
 function ApplicationForm() {
   const [resume, setResume] = useState(null);
   const [coverLetter, setCoverLetter] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [resumeUrl, setResumeUrl] = useState(null);
+  const [coverLetterUrl, setCoverLetterUrl] = useState(null);
 
-  const handleResumeUpload = (e) => {
+  const uploadFile = async (file) => {
+    setUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    try {
+      const response = await fetch("/api/files", {
+        method: "POST",
+        body: formData,
+      });
+      const url = await response.json();
+      setUploading(false);
+      return url;
+    } catch (e) {
+      console.log(e);
+      setUploading(false);
+      alert("Trouble uploading file");
+      return null;
+    }
+  };
+
+  const handleResumeUpload = async (e) => {
     const file = e.target.files[0];
     if (file && file.type === 'application/pdf') {
-      setResume(file);
+      const url = await uploadFile(file);
+      if (url) {
+        setResume(file);
+        setResumeUrl(url);
+      }
     } else {
       alert('Please upload a PDF file for your resume');
     }
   };
 
-  const handleCoverLetterUpload = (e) => {
+  const handleCoverLetterUpload = async (e) => {
     const file = e.target.files[0];
     if (file && file.type === 'application/pdf') {
-      setCoverLetter(file);
+      const url = await uploadFile(file);
+      if (url) {
+        setCoverLetter(file);
+        setCoverLetterUrl(url);
+      }
     } else {
       alert('Please upload a PDF file for your cover letter');
     }
@@ -31,7 +62,7 @@ function ApplicationForm() {
       alert('Please upload your resume');
       return;
     }
-    console.log('Submitted:', {resume, coverLetter });
+    console.log('Submitted:', { resume: resumeUrl, coverLetter: coverLetterUrl });
   };
 
   return (
@@ -40,7 +71,7 @@ function ApplicationForm() {
       <div className="company-image">
         <Image src="/boeing.jpeg" alt="Boeing Logo" width={300} height={200} />
         <div className="company-blurb">
-<p>Boeing is offering an exciting opportunity for structural engineering interns in their Summer 2025 Internship Program. The program, lasting 10-12 weeks, provides hands-on experience in various engineering projects, including commercial aircraft, space systems, and military systems. Interns will work directly with mentors, collaborate on real-world problems, and gain exposure to state-of-the-art manufacturing and research facilities. The position requires candidates to be enrolled in a core engineering discipline, such as Aerospace, Civil, or Mechanical Engineering, with an expected graduation date on or after August 2025. Successful applicants will have strong academic performance, exceptional organizational and communication skills, and a passion for aerospace engineering. The internship offers competitive pay ranging from $20-40 per hour and may include relocation assistance for eligible candidates.</p>
+          <p>Boeing is offering an exciting opportunity for structural engineering interns in their Summer 2025 Internship Program. The program, lasting 10-12 weeks, provides hands-on experience in various engineering projects, including commercial aircraft, space systems, and military systems. Interns will work directly with mentors, collaborate on real-world problems, and gain exposure to state-of-the-art manufacturing and research facilities. The position requires candidates to be enrolled in a core engineering discipline, such as Aerospace, Civil, or Mechanical Engineering, with an expected graduation date on or after August 2025. Successful applicants will have strong academic performance, exceptional organizational and communication skills, and a passion for aerospace engineering. The internship offers competitive pay ranging from $20-40 per hour and may include relocation assistance for eligible candidates.</p>
         </div>
       </div>
       <div className="application-form">
@@ -77,14 +108,16 @@ function ApplicationForm() {
             </div>
           </div>
 
-          <button type="submit" className="submit-btn">
-            Submit Application
+          <button type="submit" className="submit-btn" disabled={uploading}>
+            {uploading ? "Uploading..." : "Submit Application"}
           </button>
         </form>
         <button className="back-btn" onClick={() => window.location.href = '/dashboard'}>
           Back to Dashboard
         </button>      
       </div>
+      {resumeUrl && <img src={resumeUrl} alt="Resume Preview" />}
+      {coverLetterUrl && <img src={coverLetterUrl} alt="Cover Letter Preview" />}
     </div>
   );
 }
