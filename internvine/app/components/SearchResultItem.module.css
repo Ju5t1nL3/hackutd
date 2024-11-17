@@ -1,4 +1,5 @@
 /* styles/SearchResultItem.module.css */
+
 .searchResultItem {
   position: relative;
   height: 250px;
@@ -13,6 +14,7 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Image Wrapper */
 .imageWrapper {
   position: absolute;
   top: 0;
@@ -33,6 +35,7 @@
   transform: scale(1.1);
 }
 
+/* Overlay Effect */
 .overlay {
   position: absolute;
   top: 0;
@@ -47,6 +50,7 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* Content Display */
 .content {
   position: absolute;
   bottom: 0;
@@ -76,6 +80,7 @@
   transform: scale(1.05);
 }
 
+/* Placeholder for Missing Images */
 .errorImage {
   display: flex;
   align-items: center;

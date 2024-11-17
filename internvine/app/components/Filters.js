@@ -1,6 +1,6 @@
 
 // components/Filters.js
-import styles from '../styles/Filters.module.css';
+import styles from './Filters.module.css';
 
 export default function Filters({ onChange }) {
   const handleChange = (e) => {

@@ -36,9 +36,12 @@ function ApplicationForm() {
 
   return (
     <div className="application-page">
-      <h1 className="company-title">Google</h1>
+      <h1 className="company-title">Spring 2025 - Google STEP Internship</h1>
       <div className="company-image">
         <Image src="/google.jpg" alt="Google Logo" width={300} height={200} />
+        <div className="company-blurb">
+<p>The Google STEP Internship is a 12-week paid program for first and second-year Computer Science undergraduates. Running from June to September 2025, interns work on software projects with Google engineers, gaining practical experience and mentorship. Applicants need programming skills in Java, C++, or Python. The program offers a stipend, housing support, and valuable industry exposure, bridging the gap between academics and professional work in tech.</p>
+        </div>
       </div>
       <div className="application-form">
         <form onSubmit={handleSubmit}>
@@ -78,6 +81,9 @@ function ApplicationForm() {
             Submit Application
           </button>
         </form>
+        <button className="back-btn" onClick={() => window.location.href = '/dashboard'}>
+          Back to Dashboard
+        </button>      
       </div>
     </div>
   );

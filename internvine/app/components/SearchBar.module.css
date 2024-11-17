@@ -12,6 +12,7 @@
   border: 2px solid #ddd;
   border-radius: 4px 0 0 4px;
   outline: none;
+  color: #000000;
 }
 
 .searchBar input:focus {
