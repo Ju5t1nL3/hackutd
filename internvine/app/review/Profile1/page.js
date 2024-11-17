@@ -36,7 +36,7 @@ export default function ReviewPage({ params }) {
       {/* Right Section: Review fields */}
       <div className={styles.reviewSection}>
         <h2>Context</h2>
-        <p>Name: John Doe</p>
+        <p>Name: William Lam</p>
         <p>College: TAMU</p>
         <p>Major: Aerospace Engineering</p>
         <p>Graduation Year: 2027</p>

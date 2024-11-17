@@ -19,3 +19,7 @@ body {
   background: linear-gradient(135deg, #000000 0%, #4f6a7e 100%);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+nextjs-portal {
+  display: none;
+}

@@ -5,12 +5,12 @@ import styles from './SearchResults.module.css';
 
 export default function ResumeResults({ query, filters }) {
   const mockResults = [
-    { id: 2, title: 'John Doe - Spring 2025 - STEP Internship', image: '/google.jpg', company: 'Google' },
+    { id: 2, title: 'William Lam - Spring 2025 - STEP Internship', image: '/google.jpg', company: 'Google' },
     { id: 7, title: 'Sue-Ann Manthei - Summer 2025 - Ignite Internship', image: '/nvidia.jpg', company: 'NVIDIA' },
-    { id: 3, title: 'John Doe - Spring 2025 - Structural Engineering Intern', image: '/boeing.jpeg', company: 'Boeing' },
+    { id: 3, title: 'William Lam - Spring 2025 - Structural Engineering Intern', image: '/boeing.jpeg', company: 'Boeing' },
     { id: 6, title: 'Alice Smith - Spring 2025 - Structural Engineering Intern', image: '/boeing.jpeg', company: 'Boeing' },
     { id: 9, title: 'Sue-Ann Manthei - Spring 2025 - Structural Engineering Intern', image: '/boeing.jpeg', company: 'Boeing' },
-    { id: 1, title: 'John Doe - Summer 2025 - Ignite Internship', image: '/nvidia.jpg', company: 'NVIDIA' },
+    { id: 1, title: 'William Lam - Summer 2025 - Ignite Internship', image: '/nvidia.jpg', company: 'NVIDIA' },
     { id: 5, title: 'Alice Smith - Spring 2025 - STEP Internship', image: '/google.jpg', company: 'Google' },
     { id: 4, title: 'Alice Smith - Summer 2025 - Ignite Internship', image: '/nvidia.jpg', company: 'NVIDIA' },
     { id: 8, title: 'Sue-Ann Manthei - Spring 2025 - STEP Internship', image: '/google.jpg', company: 'Google' },
