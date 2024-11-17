@@ -11,7 +11,7 @@ const Profile = () => {
     name: "Isaac Chacko",
     university: "TAMU",
     major: "Computer Science",
-    graduationYear: "2025",
+    graduationYear: "2028",
     internships: ["NVIDIA Ignite Intern", "Google STEP Intern"], // Default internships
   });
   const [editingField, setEditingField] = useState(null);
