@@ -3,7 +3,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import PdfViewer from '../../components/PdfViewer'; // Assuming the PdfViewer is located in a components folder
+import PdfViewer from '../components/PdfViewer'; // Assuming the PdfViewer is located in a components folder
 import styles from './Review.module.css';
 
 export default function ReviewPage({ params }) {
@@ -35,54 +35,8 @@ export default function ReviewPage({ params }) {
 
       {/* Right Section: Review fields */}
       <div className={styles.reviewSection}>
-        <h2>Submit a Review</h2>
+        <h2>Oops! Looks like no one has graded your resume.</h2>
         
-        <div className={styles.field}>
-          <label>Rating</label>
-          <input
-            type="number"
-            name="rating"
-            value={reviewData.rating}
-            onChange={handleChange}
-            min="1"
-            max="5"
-            placeholder="Rate out of 5"
-          />
-        </div>
-
-        <div className={styles.field}>
-          <label>What you like</label>
-          <textarea
-            name="likes"
-            value={ wData.likes}
-            onChange={handleChange}
-            placeholder="What did you like?"
-          />
-        </div>
-
-        <div className={styles.field}>
-          <label>What you don’t like</label>
-          <textarea
-            name="dislikes"
-            value={reviewData.dislikes}
-            onChange={handleChange}
-            placeholder="What didn’t you like?"
-          />
-        </div>
-
-        <div className={styles.field}>
-          <label>Additional notes</label>
-          <textarea
-            name="notes"
-            value={reviewData.notes}
-            onChange={handleChange}
-            placeholder="Any additional notes"
-          />
-        </div>
-
-        <button onClick={handleSubmit} className={styles.submitButton}>
-          Submit Review
-        </button>
       </div>
     </div>
   );
