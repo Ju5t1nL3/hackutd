@@ -8,7 +8,7 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false); // Edit mode control
   const [profileData, setProfileData] = useState({
 
-    name: "Isaac",
+    name: "Isaac Chacko",
     university: "TAMU",
     major: "Computer Science",
     graduationYear: "2025",
