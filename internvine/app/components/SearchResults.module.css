@@ -1,13 +1,17 @@
 /* styles/SearchResults.module.css */
+
 .searchResults {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
+  padding: 20px; /* Adds padding around the grid container */
+  justify-items: center; /* Centers items within each grid cell */
 }
 
 @media (max-width: 768px) {
   .searchResults {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 10px; /* Reduces padding slightly on smaller screens */
   }
 }

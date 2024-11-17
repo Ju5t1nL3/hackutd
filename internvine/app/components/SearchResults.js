@@ -9,9 +9,14 @@ export default function SearchResults({ query, filters }) {
     { id: 3, title: 'Spring 2025 - Boeing Structural Engineering Intern', image: '/boeing.jpeg', company: 'Boeing' },
   ];
 
+  // Filter the results based on the search query
+  const filteredResults = mockResults.filter(result =>
+    result.title.toLowerCase().includes(query.toLowerCase())
+  );
+
   return (
     <div className={styles.searchResults}>
-      {mockResults.map((result) => (
+      {filteredResults.map((result) => (
         <SearchResultItem key={result.id} {...result} />
       ))}
     </div>
