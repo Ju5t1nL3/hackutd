@@ -1,21 +1,29 @@
+import Image from 'next/image';
+import { useState } from 'react';
+import styles from '../styles/SearchResultItem.module.css';
 
-// components/SearchResults.js
-import SearchResultItem from './SearchResultItem';
-import styles from '../styles/SearchResults.module.css';
-
-export default function SearchResults({ query, filters }) {
-  // In a real application, you would fetch results based on the query and filters
-  const mockResults = [
-    { id: 1, title: 'Summer 2025 - CUDA Intern', image: '/nvidia.jpg' },
-    { id: 2, title: 'Spring 2025 - Software Development Intern', image: '/google.jpg' },
-    { id: 3, title: 'Spring 2025 - Structural Engineer Intern', image: '/boeing.jpeg' },
-  ];
+export default function SearchResultItem({ title, image }) {
+  const [imageError, setImageError] = useState(false);
 
   return (
-    <div className={styles.searchResults}>
-      {mockResults.map((result) => (
-        <SearchResultItem key={result.id} {...result} />
-      ))}
+    <div className={styles.searchResultItem}>
+      {!imageError ? (
+        <div className={styles.imageWrapper}>
+          <Image
+            src={image}
+            alt={title}
+            layout="fill"
+            objectFit="cover"
+            onError={() => setImageError(true)}
+          />
+        </div>
+      ) : (
+        <div className={styles.errorImage}>Image not available</div>
+      )}
+      <div className={styles.overlay}></div>
+      <div className={styles.content}>
+        <h3>{title}</h3>
+      </div>
     </div>
   );
 }

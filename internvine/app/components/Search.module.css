@@ -10,3 +10,14 @@
   display: flex;
   margin-top: 20px;
 }
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000000 0%, #4f6a7e 100%);
+  background-attachment: fixed; /* This prevents the gradient from repeating */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+}
