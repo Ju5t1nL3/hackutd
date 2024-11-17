@@ -1,6 +1,6 @@
 // components/SearchResults.js
 
-import SearchResultItem from './SearchResultItem';
+import ResumeResultItem from './ResumeResultItem';
 import styles from './SearchResults.module.css';
 
 export default function ResumeResults({ query, filters }) {
@@ -35,7 +35,7 @@ export default function ResumeResults({ query, filters }) {
         <h2 className={styles.noResults}>No results found</h2>
       ) : (
         filteredResults.map(result => (
-          <SearchResultItem
+          <ResumeResultItem
             key={result.id}
             id={result.id}
             title={result.title}
