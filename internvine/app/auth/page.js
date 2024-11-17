@@ -1,11 +1,15 @@
 // app/auth/page.js (Login Page)
+'use client'
 import { AuthTabs } from './AuthTabs';
 import { SocialButton } from '../components/SocialButton';
+import Link from 'next/link'
 
 export default function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col items-center pt-12 px-4">
-      <h1 className="text-3xl font-bold mb-8">ResuMate</h1>
+      <Link href = "../">
+        <h1 className="text-3xl font-bold mb-8">ResuMate</h1>
+      </Link>
       
       <div className="w-full max-w-md">
         <AuthTabs />
