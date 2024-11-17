@@ -1,0 +1,80 @@
+/* Questions.module.css */
+
+.questionsContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: auto;
+    color: white;
+    min-height: 100vh; /* Ensures it takes the full viewport height */
+    padding: 40px 20px; /* Adds padding for spacing */
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4FD1C5; /* Soft teal for the title */
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  /* Question Field Styling */
+  .questionField {
+    margin-bottom: 20px;
+  }
+  
+  .questionField label {
+    font-weight: bold;
+    color: #FFD700; /* Gold color for questions */
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .inputField {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid #6366f1; /* Lighter Blue */
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 5px;
+  }
+  
+  .inputField:focus {
+    border-color: #1e3a8a; /* Darker blue on focus */
+    outline: none;
+  }
+  
+  /* Internship List Styling */
+  .internshipList {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .internshipItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .deleteIcon {
+    color: #e3342f; /* Red color for delete icon */
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .addInternshipButton {
+    background: none;
+    border: none;
+    color: #6366f1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .addInternshipButton:hover {
+    color: #1e3a8a;
+  }
+  
